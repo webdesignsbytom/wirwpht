@@ -2,7 +2,7 @@ const { Prisma } = require('@prisma/client');
 const prisma = require('../utils/prisma');
 const jwt = require('jsonwebtoken');
 
-const { findAllUsers, findUserByEmail, createUser } = require('../domain/user');
+const { findAllUsers, findUserByEmail, createUser } = require('../domain/users');
 
 const getAllUsers = async (req, res) => {
   console.log('getting all users...');

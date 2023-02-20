@@ -23,7 +23,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // Tell express to use your routers here
 const userRouter = require('./routes/users');
+const itemRouter = require('./routes/items')
 
+app.use('/items', itemRouter);
 app.use('/users', userRouter);
 app.use('/', userRouter);
 
