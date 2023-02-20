@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "wirwpht-server",
   "version": "1.0.0",
   "description": "server for wirwpht",
   "main": "src/index.js",
