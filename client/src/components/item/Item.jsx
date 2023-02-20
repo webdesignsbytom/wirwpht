@@ -1,6 +1,6 @@
 import React from 'react';
 // Styles
-import './item.css'
+import './item.css';
 
 function Item({ item }) {
   console.log('ITEM:', item);
@@ -14,9 +14,11 @@ function Item({ item }) {
         <div className='item__image'>
           <img src={item.imageUrl} alt={item.name} />
         </div>
-        <div className="item__total">
-          <h5>Total {item.name} Per Person in the UK</h5>
-          <h3>10000000</h3>
+        <div className='item__total'>
+          <div>
+            <h5>Total {item.name} Per Person in the UK</h5>
+            <h3>10000000</h3>
+          </div>
         </div>
       </section>
     </>
