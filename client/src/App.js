@@ -8,7 +8,9 @@ function App() {
       <Routes>
 
         <Route path='/' element={<Home />} />
-        <Route path='8' element={<Error404 />} />
+        
+        {/* Error paths */}
+        <Route path='*' element={<Error404 />} />
 
       </Routes>
     </>
