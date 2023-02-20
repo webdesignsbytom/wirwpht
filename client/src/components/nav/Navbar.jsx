@@ -10,6 +10,7 @@ function Navbar() {
       <section className='navbar__container'>
         <div className='nav__titles'>
           <h3>WIRWPHT</h3>
+          <h6>There is no magic money tree</h6>
         </div>
         <nav className='nav__links'>
           <ul>

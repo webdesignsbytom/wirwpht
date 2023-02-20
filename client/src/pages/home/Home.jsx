@@ -10,7 +10,6 @@ import './home.css';
 function Home() {
   const [itemsDisplay, setItemsDisplay] = useState([]);
   const [currentItem, setCurrentItem] = useState(itemsDisplay);
-  console.log('itemsDisplay', itemsDisplay);
 
   useEffect(() => {
     console.log('using an effect to get post query');
@@ -19,7 +18,6 @@ function Home() {
       .then((data) => {
         setItemsDisplay(data.data);
         setCurrentItem(data.data[1]);
-        console.log('data: ', data.data);
       })
       .catch((error) => {
         console.log('error', error);

@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+// Data
+import { TotalUkCitizens, TotalOwedByWife } from '../../utils/Totals';
 // Styles
 import './item.css';
 
 function Item({ item }) {
-  console.log('ITEM:', item);
+  const [ukCitizensNum, setUkCitizensNum] = useState(TotalUkCitizens);
+  const [totalPurchased, setTotalPurchased] = useState(0)
+
+  useEffect(() => {
+    console.log('effect');
+    console.log('ukCitizens', ukCitizensNum);
+    console.log('totalPurchased', totalPurchased);
+    let itemCost = item.cost
+    console.log('item cost', itemCost);
+    let totalPurchase = TotalOwedByWife / itemCost
+    setTotalPurchased(totalPurchase)
+    console.log('total', totalPurchase);
+    let totalEach = totalPurchase / ukCitizensNum
+    console.log('total each', totalEach);
+  }, [])
+
   return (
     <>
       <section className='item__container'>
@@ -15,6 +32,10 @@ function Item({ item }) {
           <img src={item.imageUrl} alt={item.name} />
         </div>
         <div className='item__total'>
+          <>
+            <h5>Total Purchased</h5>
+            <h3>{totalPurchased}</h3>
+          </>
           <div>
             <h5>Total {item.name} Per Person in the UK</h5>
             <h3>10000000</h3>
