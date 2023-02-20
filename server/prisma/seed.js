@@ -20,6 +20,14 @@ async function seed() {
       role: 'ADMIN',
     }
   })
+
+  const firstItem = await prisma.item.create({
+    data: {
+      name: 'Freddo Bar',
+      imageUrl: 'https://m.media-amazon.com/images/I/51IT4nz675L._AC_SX679_.jpg',
+      cost: 0.25
+    }
+  })
 }
 
 seed().catch(async (error) => {

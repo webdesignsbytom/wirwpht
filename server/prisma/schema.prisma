@@ -25,3 +25,12 @@ model User {
   createdAt DateTime  @default(now())
   updatedAt DateTime? @updatedAt
 }
+
+model Item {
+  id        Int       @id @default(autoincrement())
+  name      String    @unique
+  imageUrl  String    @unique
+  cost      Decimal       @default(0)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+}
