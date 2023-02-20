@@ -1,0 +1,32 @@
+.homepage__container {
+    display: grid;
+    background-color: var(--color-primary-blue);
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+
+    grid-template-columns: 1fr 7fr;
+    
+    color: white;
+}
+
+.main__container {
+    display: grid;
+    border: 1px solid red;
+    margin: 1rem 3rem;
+
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    
+}
+
+/* Media Queries (MEDIUM DEVICES) */
+@media screen and (max-width: 1024px) {
+    
+}
+
+/* Media Queries (Small DEVICES) */
+@media screen and (max-width: 600px) {
+    .homepage__container {
+    }
+}

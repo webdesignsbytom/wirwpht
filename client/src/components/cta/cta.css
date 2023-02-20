@@ -1,0 +1,16 @@
+.cta__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 3rem 0;
+}
+
+.button__container {
+    display: grid;
+    place-content: center;
+}
+
+.doubleBtn__container {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 1rem;
+}

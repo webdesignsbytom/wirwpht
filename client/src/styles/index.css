@@ -56,12 +56,12 @@ h1 {
 }
 
 a {
-    color: var(--color-primary-blue);
+    color: var(--color-primary-white);
     transition: var(--transition);
 }
 
 a:hover {
-    color: var(--color-primary-white);
+    color: var(--color-primary-red);
 }
 
 .btn {

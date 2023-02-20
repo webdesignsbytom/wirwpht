@@ -1,0 +1,1 @@
+export const TotalOwedByWife = 10000000
