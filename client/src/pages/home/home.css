@@ -8,16 +8,15 @@
     grid-template-columns: 1fr 7fr;
     
     color: white;
+    width: 100%;
 }
 
 .main__container {
     display: grid;
-    border: 1px solid red;
     margin: 1rem 3rem;
 
     display: grid;
     grid-template-rows: auto 1fr auto;
-    
 }
 
 /* Media Queries (MEDIUM DEVICES) */
@@ -28,5 +27,9 @@
 /* Media Queries (Small DEVICES) */
 @media screen and (max-width: 600px) {
     .homepage__container {
+        grid-template-columns: 1fr;
+    }
+    .main__container {
+        margin: 0 3rem;
     }
 }

@@ -1,6 +1,24 @@
 .totalOwed__container {
     text-align: center;
-    border: 3px solid white;
     width: 50%;
-    margin: 0 auto;
+    margin: 2rem auto;
+
+    border: 3px solid white;
+    border-radius: 1.5rem;
+
+    background-color: var(--color-primary-red);
+    
+}
+
+/* Media Queries (MEDIUM DEVICES) */
+@media screen and (max-width: 1024px) {
+    
+}
+
+/* Media Queries (Small DEVICES) */
+@media screen and (max-width: 600px) {
+    .totalOwed__container {
+        width: 80%;
+        padding: 0.5rem 0;
+    }
 }

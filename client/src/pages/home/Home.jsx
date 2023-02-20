@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import CTA from '../../components/cta/CTA';
 import Item from '../../components/item/Item';
 // Components
-import Navbar from '../../components/nav/Navbar'
-import TotalOwed from '../../components/totalOwed/TotalOwed'
+import Navbar from '../../components/nav/Navbar';
+import TotalOwed from '../../components/totalOwed/TotalOwed';
 // Styles
 import './home.css';
 
 function Home() {
-  const [itemsDisplay, setItemsDisplay] = useState([])
+  const [itemsDisplay, setItemsDisplay] = useState([]);
+  const [currentItem, setCurrentItem] = useState(itemsDisplay);
   console.log('itemsDisplay', itemsDisplay);
 
   useEffect(() => {
@@ -17,6 +18,7 @@ function Home() {
       .then((res) => res.json())
       .then((data) => {
         setItemsDisplay(data.data);
+        setCurrentItem(data.data[1]);
         console.log('data: ', data.data);
       })
       .catch((error) => {
@@ -28,11 +30,14 @@ function Home() {
     <>
       <section className='homepage__container'>
         <Navbar />
-        <div className="main__container">
-            <TotalOwed />
-            {itemsDisplay.length > 0 ? <Item /> : <div>Nothing to display...</div>}
-            
-            <CTA />
+        <div className='main__container'>
+          <TotalOwed />
+          {itemsDisplay.length > 0 ? (
+            <Item item={currentItem} />
+          ) : (
+            <div>Nothing to display...</div>
+          )}
+          <CTA />
         </div>
       </section>
     </>

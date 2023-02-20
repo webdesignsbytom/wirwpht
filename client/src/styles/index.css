@@ -73,12 +73,13 @@ a:hover {
     cursor: pointer;
     border: 1px solid var(--color-border);
     transition: var(--transition);
+    background-color: var(--color-primary-white);
 }
 
 .btn:hover {
     background: var(--color-white);
     color: var(--color-bg);
-    border-color: transparent;
+    border-color: var(--color-primary-red);
 }
 
 .btn__alt {

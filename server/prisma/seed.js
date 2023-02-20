@@ -28,6 +28,20 @@ async function seed() {
       cost: 0.25
     }
   })
+  const secondItem = await prisma.item.create({
+    data: {
+      name: 'Playstation 5',
+      imageUrl: 'https://media.direct.playstation.com/is/image/psdglobal/PS5-console-front',
+      cost: 600
+    }
+  })
+  const thirdItem = await prisma.item.create({
+    data: {
+      name: 'Tesla',
+      imageUrl: 'https://media.autoexpress.co.uk/image/private/s--X-WVjvBW--/f_auto,t_content-image-full-desktop@1/v1670502844/autoexpress/2022/12/Baby%20Tesla%20exclusive%20images.jpg',
+      cost: 40000
+    }
+  })
 }
 
 seed().catch(async (error) => {

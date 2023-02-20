@@ -40,5 +40,7 @@
 
 /* Media Queries (Small DEVICES) */
 @media screen and (max-width: 600px) {
-    
+    .navbar__container {
+        display: none;
+    }
 }
