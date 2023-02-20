@@ -7,6 +7,7 @@ import './item.css';
 function Item({ item }) {
   const [ukCitizensNum, setUkCitizensNum] = useState(TotalUkCitizens);
   const [totalPurchased, setTotalPurchased] = useState(0)
+  const [totalEach, setTotalEach] = useState(0)
 
   useEffect(() => {
     console.log('effect');
@@ -18,6 +19,7 @@ function Item({ item }) {
     setTotalPurchased(totalPurchase)
     console.log('total', totalPurchase);
     let totalEach = totalPurchase / ukCitizensNum
+    setTotalEach(totalEach)
     console.log('total each', totalEach);
   }, [])
 
@@ -38,7 +40,7 @@ function Item({ item }) {
           </>
           <div>
             <h5>Total {item.name} Per Person in the UK</h5>
-            <h3>10000000</h3>
+            <h3>{totalEach}</h3>
           </div>
         </div>
       </section>
