@@ -10,5 +10,5 @@ const URL = process.env.HTTP_URL || 'http://localhost:'
 
 // Start our API server
 app.listen(PORT, () => {
-    console.log(`\nServer is running on ${URL}${PORT}\n`);
+    console.log(`\nServer is running on ${URL}${PORT} using old magic\n`);
 });

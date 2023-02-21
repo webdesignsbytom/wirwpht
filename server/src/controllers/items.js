@@ -4,7 +4,6 @@ const prisma = require('../utils/prisma');
 const { findAllItems, findItemByName, createItem, findUrlByName } = require('../domain/items');
 
 const getAllItems = async (req, res) => {
-  console.log('getting all items...');
 
   try {
     const foundItems = await findAllItems();
@@ -40,7 +39,7 @@ const getAllItems = async (req, res) => {
 };
 
 const createNewItem = async (req, res) => {
-  console.log('Creating new item');
+
   const { name, imageUrl, cost, effect, desc } = req.body;
 
   if (!name || !imageUrl || !cost || !effect || !desc) {
