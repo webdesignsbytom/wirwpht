@@ -2,7 +2,7 @@ import React from 'react';
 // Styles
 import './cta.css'
 
-function CTA() {
+function CTA({ prevItem, nextItem }) {
   return (
     <>
       <section className='cta__container'>
@@ -13,8 +13,8 @@ function CTA() {
           <button className='btn'>Tweet</button>
         </div>
         <div className='button__container doubleBtn__container'>
-          <button className='btn'>Prev</button>
-          <button className='btn'>Next</button>
+          <button className='btn' onClick={prevItem}>Prev</button>
+          <button className='btn' onClick={nextItem}>Next</button>
         </div>
       </section>
     </>

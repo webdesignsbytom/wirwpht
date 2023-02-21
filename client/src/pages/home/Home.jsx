@@ -10,6 +10,7 @@ import './home.css';
 function Home() {
   const [itemsDisplay, setItemsDisplay] = useState([]);
   const [currentItem, setCurrentItem] = useState(itemsDisplay);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     console.log('using an effect to get post query');
@@ -17,12 +18,31 @@ function Home() {
       .then((res) => res.json())
       .then((data) => {
         setItemsDisplay(data.data);
-        setCurrentItem(data.data[1]);
+        setCurrentItem(data.data[currentIndex]);
       })
       .catch((error) => {
         console.log('error', error);
       });
   }, []);
+
+  useEffect(() => {
+    setCurrentItem(itemsDisplay[currentIndex]);
+  }, [currentIndex]);
+
+  const nextItem = () => {
+    if (currentIndex === itemsDisplay.length - 1) {
+      setCurrentIndex(0);
+    } else {
+      setCurrentIndex((prev) => prev + 1);
+    }
+  };
+
+  const prevItem = () => {
+    if (currentIndex === 0) {
+      setCurrentIndex(itemsDisplay.length);
+    }
+    setCurrentIndex((prev) => prev - 1);
+  };
 
   return (
     <>
@@ -35,7 +55,7 @@ function Home() {
           ) : (
             <div>Nothing to display...</div>
           )}
-          <CTA />
+          <CTA nextItem={nextItem} prevItem={prevItem} />
         </div>
       </section>
     </>

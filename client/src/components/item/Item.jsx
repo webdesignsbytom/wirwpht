@@ -21,7 +21,7 @@ function Item({ item }) {
     let totalEach = totalPurchase / ukCitizensNum
     setTotalEach(totalEach)
     console.log('total each', totalEach);
-  }, [])
+  }, [item])
 
   return (
     <>
@@ -36,11 +36,11 @@ function Item({ item }) {
         <div className='item__total'>
           <>
             <h5>Total Purchased</h5>
-            <h3>{totalPurchased}</h3>
+            <h3>{totalPurchased.toFixed(1)}</h3>
           </>
           <div>
             <h5>Total {item.name} Per Person in the UK</h5>
-            <h3>{totalEach}</h3>
+            <h3>{totalEach.toFixed(1)}</h3>
           </div>
         </div>
       </section>

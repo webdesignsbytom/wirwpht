@@ -30,7 +30,10 @@ model Item {
   id        Int       @id @default(autoincrement())
   name      String    @unique
   imageUrl  String    @unique
-  cost      Decimal       @default(0)
+  cost      Decimal   @default(0)
+  effect    String    @default("")
+  desc      String
+  ratings    Int[]     @default([5])
   createdAt DateTime  @default(now())
   updatedAt DateTime? @updatedAt
 }

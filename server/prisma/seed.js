@@ -25,21 +25,24 @@ async function seed() {
     data: {
       name: 'Freddo Bar',
       imageUrl: 'https://m.media-amazon.com/images/I/51IT4nz675L._AC_SX679_.jpg',
-      cost: 0.25
+      cost: 0.25,
+      desc: ''
     }
   })
   const secondItem = await prisma.item.create({
     data: {
       name: 'Playstation 5',
       imageUrl: 'https://media.direct.playstation.com/is/image/psdglobal/PS5-console-front',
-      cost: 600
+      cost: 600,
+      desc: ''
     }
   })
   const thirdItem = await prisma.item.create({
     data: {
       name: 'Tesla',
       imageUrl: 'https://media.autoexpress.co.uk/image/private/s--X-WVjvBW--/f_auto,t_content-image-full-desktop@1/v1670502844/autoexpress/2022/12/Baby%20Tesla%20exclusive%20images.jpg',
-      cost: 40000
+      cost: 40000,
+      desc: ''
     }
   })
 }
