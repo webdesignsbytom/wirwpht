@@ -1,20 +1,87 @@
 .upload__container {
-    display: grid;
-    background-color: var(--color-primary-blue);
-    height: 100vh;
-    max-height: 100vh;
-    overflow: hidden;
+  display: grid;
+  background-color: var(--color-primary-blue);
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
 
-    grid-template-columns: 1fr 7fr;
-    
-    color: white;
-    width: 100%;
+  grid-template-columns: 1fr 7fr;
+
+  color: white;
+  width: 100%;
 }
 
+.upload__titles {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.form__container {
+  display: grid;
+  justify-content: center;
+  width: 100%;
+  padding: 0 0.5rem;
+  grid-template-rows: min-content 1fr;
+  gap: 3rem;
+}
+
+.second__form {
+  width: 100%;
+}
+
+form {
+  display: grid;
+  grid-template-rows: auto auto auto auto auto auto;
+  gap: 5px;
+}
+
+.formInput__container {
+  display: grid;
+}
+
+.submitBtn {
+  margin-top: 0.8rem;
+}
+
+input[type='submit'] {
+  background-color: var(--color-primary-red);
+  color: var(--color-primary-white);
+  transition: 400ms ease;
+}
+
+input[type='submit']:hover {
+  filter: brightness(0.9);
+  color: rgb(180, 209, 239);
+  cursor: pointer;
+}
+
+input, textarea {
+  height: 35px;
+  font-size: 1.3rem;
+  padding: 0.4rem;
+  border-radius: 6px;
+  transition: 300ms linear;
+
+}
+
+textarea {
+    height: 75px;
+}
+
+input:focus, textarea:focus {
+  outline: 3px solid var(--color-primary-red);
+}
 /* Media Queries (MEDIUM DEVICES) */
 @media screen and (max-width: 1024px) {
 }
 
 /* Media Queries (Small DEVICES) */
 @media screen and (max-width: 600px) {
+  .upload__container {
+    grid-template-columns: 1fr;
+  }
+  .upload__titles {
+    text-align: center;
+    line-height: 1.2;
+  }
 }
