@@ -9,10 +9,12 @@ function ItemPage() {
   const location = useLocation();
   // nav goes to what page you want
   const navigate = useNavigate();
+
   const { item } = location.state;
+  console.log('item xxx', item);
 
   useEffect(() => {
-    setItemDisplayed(item)
+    setItemDisplayed(item.data)
   }, [])
 
   return (
