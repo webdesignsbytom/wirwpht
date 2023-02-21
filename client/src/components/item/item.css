@@ -1,51 +1,67 @@
 .item__container {
-    display: grid;
-    grid-template-rows: min-content 1fr min-content;
-    gap: 5px;
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+  gap: 5px;
 }
 
 .item__titles {
-    background-color: orange;
-    display: grid;
-    grid-auto-flow: column;
-    justify-content: space-between;
-    min-height: 30px;
-    border: 3px solid var(--color-primary-red);
-    border-radius: 12px;
-    padding: 1rem;
+  background-color: orange;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  min-height: 30px;
+  border: 3px solid var(--color-primary-red);
+  border-radius: 12px;
+  padding: 1rem;
 }
 
 .item__image {
-    display: grid;
-    place-content: center;
-    border: 3px solid var(--color-primary-red);
-    border-radius: 12px;
-    overflow: hidden;
-    background-color: white;
+  display: grid;
+  place-content: center;
+  border: 3px solid var(--color-primary-red);
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: white;
 }
 
 .item__image img {
-    max-height: 400px;
+  max-height: 300px;
 }
 
-.item__total {
-    background-color: orange;
-    display: grid;
-    min-height: 30px;
-    border: 3px solid var(--color-primary-red);
-    border-radius: 12px;
-    padding: 1rem;
-    text-align: center;
+.item__totals {
+  background-color: orange;
+  display: grid;
+  border: 3px solid var(--color-primary-red);
+  border-radius: 12px;
+  text-align: center;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 1fr;
+}
+
+.item__totals h3 {
+    color: var(--color-primary-red);
+    font-weight: 700;
 }
 
 /* Media Queries (MEDIUM DEVICES) */
 @media screen and (max-width: 1024px) {
-    
 }
 
 /* Media Queries (Small DEVICES) */
 @media screen and (max-width: 600px) {
-    .homepage__container {
-        grid-template-columns: 1fr;
-    }
+  .homepage__container {
+    grid-template-columns: 1fr;
+  }
+  .item__titles {
+    grid-auto-flow: row;
+    text-align: center;
+    line-height: 1.1;
+    justify-content: center;
+    padding: 0.2rem 0;
+  }
+  .item__totals {
+    line-height: 1.1;
+    padding: 0.2rem 0;
+    font-size: 0.8rem;
+  }
 }

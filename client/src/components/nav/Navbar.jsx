@@ -15,16 +15,16 @@ function Navbar() {
         <nav className='nav__links'>
           <ul>
             <li>
-              <Link>Home</Link>
+              <Link to='/'>Home</Link>
             </li>
             <li>
-              <Link>About</Link>
+              <Link to='/about'>About</Link>
             </li>
             <li>
-              <Link>Upload</Link>
+              <Link to='/upload'>Upload</Link>
             </li>
             <li>
-              <Link>Top 10</Link>
+              <Link to='topten'>Top 10</Link>
             </li>
           </ul>
         </nav>

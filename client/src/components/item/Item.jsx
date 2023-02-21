@@ -6,22 +6,16 @@ import './item.css';
 
 function Item({ item }) {
   const [ukCitizensNum, setUkCitizensNum] = useState(TotalUkCitizens);
-  const [totalPurchased, setTotalPurchased] = useState(0)
-  const [totalEach, setTotalEach] = useState(0)
+  const [totalPurchased, setTotalPurchased] = useState(0);
+  const [totalEach, setTotalEach] = useState(0);
 
   useEffect(() => {
-    console.log('effect');
-    console.log('ukCitizens', ukCitizensNum);
-    console.log('totalPurchased', totalPurchased);
-    let itemCost = item.cost
-    console.log('item cost', itemCost);
-    let totalPurchase = TotalOwedByWife / itemCost
-    setTotalPurchased(totalPurchase)
-    console.log('total', totalPurchase);
-    let totalEach = totalPurchase / ukCitizensNum
-    setTotalEach(totalEach)
-    console.log('total each', totalEach);
-  }, [item])
+    let itemCost = item.cost;
+    let totalPurchase = TotalOwedByWife / itemCost;
+    setTotalPurchased(totalPurchase);
+    let totalEach = totalPurchase / ukCitizensNum;
+    setTotalEach(totalEach);
+  }, [item]);
 
   return (
     <>
@@ -33,11 +27,11 @@ function Item({ item }) {
         <div className='item__image'>
           <img src={item.imageUrl} alt={item.name} />
         </div>
-        <div className='item__total'>
-          <>
+        <div className='item__totals'>
+          <div>
             <h5>Total Purchased</h5>
             <h3>{totalPurchased.toFixed(1)}</h3>
-          </>
+          </div>
           <div>
             <h5>Total {item.name} Per Person in the UK</h5>
             <h3>{totalEach.toFixed(1)}</h3>
