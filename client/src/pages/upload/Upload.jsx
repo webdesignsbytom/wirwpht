@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // Components
 import Navbar from '../../components/nav/Navbar';
+import { validUrl } from '../../utils/Validation';
 // Styles
 import './upload.css';
 
@@ -22,6 +23,9 @@ function Upload() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    const checkUrl = validUrl(formData.imageUrl)
+    console.log('checkUrl', checkUrl);
 
     const res = await fetch('http://localhost:4000/items/create', {
       method: 'POST',
