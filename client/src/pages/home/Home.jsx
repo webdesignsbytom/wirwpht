@@ -14,7 +14,7 @@ function Home() {
 
   useEffect(() => {
     console.log('using an effect to get post query');
-    fetch(`https://wirwpht-orjtkqiwx-webdesignbytom.vercel.app/`)
+    fetch(`https://wirwpht-orjtkqiwx-webdesignbytom.vercel.app/items`)
       .then((res) => res.json())
       .then((data) => {
         setItemsDisplay(data.data);
