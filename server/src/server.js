@@ -26,7 +26,9 @@ const URL = process.env.URL || 'http://localhost:'
 // Tell express to use your routers here
 // const userRouter = require('./routes/usersEX');
 const userRouter = require('./routes/users');
+const itemRouter = require('./routes/items');
 
+app.use('/items', itemRouter);
 app.use('/users', userRouter);
 // app.use('/', userRouter);
 
