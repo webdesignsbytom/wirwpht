@@ -1,11 +1,16 @@
 import { Routes, Route } from 'react-router-dom';
-import Item from './components/item/Item';
+// Pages
 import Error404 from './pages/error/Error404';
 import Home from './pages/home/Home';
 import ItemPage from './pages/itemPage/ItemPage';
 import Upload from './pages/upload/Upload';
+import ReactGA from 'react-ga';
 
 function App() {
+
+  ReactGA.initialize('');
+  ReactGA.pageview('/');
+
   return (
     <>
       <Routes>
