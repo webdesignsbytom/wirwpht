@@ -1,10 +1,11 @@
-const { Prisma } = require('@prisma/client');
-const prisma = require('../utils/prisma');
+import {
+  findAllItems,
+  findItemByName,
+  createItem,
+  findUrlByName,
+} from '../domain/items.js';
 
-const { findAllItems, findItemByName, createItem, findUrlByName } = require('../domain/items');
-
-const getAllItems = async (req, res) => {
-
+export const getAllItems = async (req, res) => {
   try {
     const foundItems = await findAllItems();
 
@@ -38,8 +39,7 @@ const getAllItems = async (req, res) => {
   }
 };
 
-const createNewItem = async (req, res) => {
-
+export const createNewItem = async (req, res) => {
   const { name, imageUrl, cost, effect, desc } = req.body;
 
   if (!name || !imageUrl || !cost || !effect || !desc) {
@@ -58,15 +58,18 @@ const createNewItem = async (req, res) => {
         .json({ error: `Item already exists`, code: `409` });
     }
 
-    const foundUrl = await findUrlByName(imageUrl)
+    const foundUrl = await findUrlByName(imageUrl);
 
     if (foundUrl) {
       return res
         .status(409)
-        .json({ error: `Item already exists with URl ${imageUrl}`, code: `409` });
+        .json({
+          error: `Item already exists with URl ${imageUrl}`,
+          code: `409`,
+        });
     }
 
-    const newItem = await createItem(name, imageUrl, cost, effect, desc)
+    const newItem = await createItem(name, imageUrl, cost, effect, desc);
 
     return res.status(201).json({
       message: `Item ${newItem.name} created`,
@@ -82,9 +85,4 @@ const createNewItem = async (req, res) => {
       message: `Internal server error: ${error.message}, code: 500`,
     });
   }
-};
-
-module.exports = {
-  getAllItems,
-  createNewItem,
 };
