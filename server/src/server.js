@@ -27,6 +27,9 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Create path to HTML
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+
 // Set the port and URl
 const PORT = process.env.PORT || 4000;
 const HTTP_URL = process.env.HTTP_URL || 'http://localhost:'
@@ -37,22 +40,33 @@ app.use('/users', userRouter);
 app.use('/events', eventRouter);
 app.use('/notifications', notificationRouter);
 
-// app.use('/', userRouter);
-
+// Server interface page
 app.get('/', (req, res) => {
-    res.sendFile('index.html', {root: path.join(__dirname, 'views')});
-})
+  res.sendFile('index.html', {
+    root: join(__dirname, 'views'),
+  });
+});
 
 // For all unknown requests 404 page returns
 app.all('*', (req, res) => {
-    res.status(404)
-    if (req.accepts('html')) {
-        res.sendFile(path.join(__dirname, 'views', '404.html'))
-    } else if (req.accepts('json')) {
-        res.json({ message: '404 Not Found' })
-    } else {
-        res.type('txt').send('404 Not Found')
-    }
+  res.status(404);
+  if (req.accepts('html')) {
+    res.sendFile(join(__dirname, 'views', '404.html'));
+  } else if (req.accepts('json')) {
+    res.json({ message: '404 Not Found' });
+  } else {
+    res.type('txt').send('404 Not Found');
+  }
+});
+
+app.use((error, req, res, next) => {
+  console.error(error)
+
+  if (error.code === 'P2025') {
+    return sendDataResponse(res, 404, 'Record does not exist')
+  }
+
+  return sendDataResponse(res, 500)
 })
 
 // Start our API server
