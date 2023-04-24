@@ -7,7 +7,6 @@ import Upload from './pages/upload/Upload';
 import ReactGA from 'react-ga';
 
 function App() {
-
   ReactGA.initialize('');
   ReactGA.pageview('/');
 

@@ -20,42 +20,14 @@ export const EVENT_MESSAGES = {
   userComplaintsNotFound: `Failed to find user complaints`,
   createComplaintFail: `Failed to create complaint`,
   markComplaintViewedFailed: `Failed to mark complaint as viewed`,
-  // Components
-  componentTag: `Component database`,
-  componentNotFound: `Failed to find component/s`,
-  createComponentFail: `Failed to create component`,
   // Contacts
   contactTag: `Contact database`,
   contactNotFound: `Failed to find contact/s`,
   createContactFail: `Failed to create contact`,
-  // Designs
-  designTag: `Design database`,
-  designNotFound: `Failed to find design/s`,
-  createDesignFail: `Failed to create design`,
   // Events
   eventTag: `Event database`,
   eventNotFound: `Failed to find event`,
   createEventFail: `Failed to create event`,
-  // Messages
-  messageTag: `Message database`,
-  messageNotFound: `Failed to find message/s`,
-  userMessagesNotFound: `Failed to find user messages`,
-  createMessageFail: `Failed to create message`,
-  markMessageViewedFailed: `Failed to mark message as viewed`,
-  // Notifications
-  notificationTag: `Notification database`,
-  notificationIdNotFound: `Failed find notification/s`,
-  userNotificationsNotFound: `Failed to find user notifications`,
-  createNotificationFail: `Failed to create notification`,
-  markNotificationViewedFailed: `Failed to mark notification as viewed`,
-  // Palettes
-  paletteTag: `Palette database`,
-  paletteNotFound: `Failed to find palette/s`,
-  createPaletteFail: `Failed to create palette`,
-  // Projects
-  projectTag: `Project database`,
-  projectNotFound: `Failed to find project/s`,
-  createProjectFail: `Failed to create project`,
   // Reviews
   reviewsTag: `Review database`,
   notFoundReview: `Failed to find review/s`,
