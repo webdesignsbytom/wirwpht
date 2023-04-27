@@ -1,9 +1,10 @@
 {
   "name": "wirwpht-server",
-  "version": "1.0.0",
+  "version": "2.1.1",
   "description": "server for wirwpht",
   "main": "src/server.js",
   "scripts": {
+    "postinstall": "prisma generate",
     "start": "nodemon src/server.js"
   },
   "prisma": {
