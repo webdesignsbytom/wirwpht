@@ -1,54 +1,74 @@
-// Load our .env file
-require('dotenv').config();
+import 'dotenv/config';
+import express from 'express';
+import cors from 'cors';
+import morgan from 'morgan';
+// Path
+import { join } from 'path';
+import * as url from 'url';
+// Import routers
+import authRouter from './routes/auth.js';
+import eventRouter from './routes/events.js';
+import notificationRouter from './routes/notifications.js';
+import userRouter from './routes/users.js';
+import itemRouter from './routes/items.js';
 
-const express = require('express');
 const app = express();
-// Used for __dirname
-const path = require('path')
-
-const cors = require('cors');
-const morgan = require('morgan');
-
 app.disable('x-powered-by');
 
 // Add middleware
-app.use(cors());
+app.use(
+  cors({ 
+    origin: "*"
+  })
+);
+
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'))
 
+// Create path to HTML
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 // Set the port and URl
 const PORT = process.env.PORT || 4000;
-const URL = process.env.URL || 'http://localhost:'
+const HTTP_URL = process.env.HTTP_URL || 'http://localhost:'
 
 // Tell express to use your routers here
-// const userRouter = require('./routes/usersEX');
-const userRouter = require('./routes/users');
-const itemRouter = require('./routes/items');
-
 app.use('/items', itemRouter);
 app.use('/users', userRouter);
-// app.use('/', userRouter);
+app.use('/events', eventRouter);
+app.use('/notifications', notificationRouter);
 
+// Server interface page
 app.get('/', (req, res) => {
-    res.sendFile('index.html', {root: path.join(__dirname, '..', 'public')});
-})
+  res.sendFile('index.html', {
+    root: join(__dirname, 'views'),
+  });
+});
 
 // For all unknown requests 404 page returns
 app.all('*', (req, res) => {
-    res.status(404)
-    if (req.accepts('html')) {
-        res.sendFile(path.join(__dirname, '..', 'public', 'error404.html'))
-    } else if (req.accepts('json')) {
-        res.json({ message: '404 Not Found' })
-    } else {
-        res.type('txt').send('404 Not Found')
-    }
+  res.status(404);
+  if (req.accepts('html')) {
+    res.sendFile(join(__dirname, 'views', '404.html'));
+  } else if (req.accepts('json')) {
+    res.json({ message: '404 Not Found' });
+  } else {
+    res.type('txt').send('404 Not Found');
+  }
+});
+
+app.use((error, req, res, next) => {
+  console.error(error)
+
+  if (error.code === 'P2025') {
+    return sendDataResponse(res, 404, 'Record does not exist')
+  }
+
+  return sendDataResponse(res, 500)
 })
 
 // Start our API server
 app.listen(PORT, () => {
-    console.log(`\nServer is running on ${URL}${PORT} - this no longer consumes souls\n`);
+    console.log(`\nServer is running on ${HTTP_URL}${PORT} - this no longer consumes souls\n`);
 });

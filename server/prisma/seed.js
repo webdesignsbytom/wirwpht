@@ -10,6 +10,7 @@ async function seed() {
     data: {
       email: 'maxpower@email.com',
       password,
+      username: 'testuser'
     },
   });
 
@@ -18,6 +19,16 @@ async function seed() {
       email: 'admin@admin.com',
       password,
       role: 'ADMIN',
+      username: 'adminUser'
+    }
+  })
+
+  const developerUser = await prisma.user.create({
+    data: {
+      email: 'dev@dev.com',
+      password,
+      role: 'DEVELOPER',
+      username: 'developerUser'
     }
   })
 

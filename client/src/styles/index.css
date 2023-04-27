@@ -1,113 +1,102 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    border: 0;
-    list-style: none;
-    outline: 0;
-    text-decoration: none;
-}
-
-:root {
-    --color-bg: #fff;
-    --color-primary-red: #c9082a;
-    --color-primary-blue: #001b69;
-    --color-primary-white: #ffffff;
-
-    --color-border: #000000;
-
-    --transition: all 400ms ease;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-::-webkit-scrollbar {
-    display: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: 0;
+  outline: 0;
+  text-decoration: none;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background: var(--color-bg);
-    line-height: 1.7;
+  line-height: 1.5;
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  padding: 0;
+  margin: 0;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.no__highlights {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 /* ================= GENERAL STYLES ================= */
 
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
 
-h1,
-h2,
-h3,
-h4,h5,h6 {
-    font-weight: 500;
-}
-
-h1 {
-    font-size: 2.5rem;
-}
-
-/* All components are wrapped in a section tag */
-
-.text-light {
-    color: var(--color-light);
-}
-
-a {
-    color: var(--color-primary-white);
-    transition: var(--transition);
-}
-
-a:hover {
-    color: var(--color-primary-red);
-}
-
-.btn {
-    width: max-content;
-    display: inline-block;
-    color: var(--color-primary-blue);
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.4rem;
-    cursor: pointer;
-    border: 1px solid var(--color-border);
-    transition: var(--transition);
-    background-color: var(--color-primary-white);
-    width: 100%;
-}
-
-.btn:hover {
-    background: var(--color-white);
-    color: var(--color-bg);
-    border-color: var(--color-primary-red);
-}
-
-.btn__alt {
-    width: max-content;
-    display: inline-block;
-    color: var(--color-primary-white);
-    padding: 0.75rem;
-    border-radius: 0.4rem;
-    cursor: pointer;
-    background: var(--color-primary-red);
-    border: 1px solid var(--color-border);
-    transition: var(--transition);
-}
-
-.btn__alt:hover {
-    background: var(--color-white);
-    border-color: var(--color-border);
-    color: black;
-}
-
-
-/* Media Queries (MEDIUM DEVICES) */
-@media screen and (max-width: 1024px) {
-    
-}
-
-/* Media Queries (Small DEVICES) */
-@media screen and (max-width: 600px) {
-    
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
